@@ -1,0 +1,97 @@
+FORMAT: 1A
+HOST: http://localhost:8000/
+
+# Albums
+
+This is apiary from JSON place holder for root albums.
+
+
+## Api for Show All Albums [/albums]
+
+### Show All Albums [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Albums])
+
+### Create a New Albums [POST]
+
+With method POST, you can make new albums by use same endpoint but different method.
+And you should to send request data in Body with data type json.
+
++ Request (application/json)
+
+        {
+            "userId": 1,
+            "title": "new albums"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /albums/2
+
+    + Attributes (New Album)
+
+      
+## Api for Show Album by id [/albums/1]
+
+### Show Album by Id [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (Albums)
+
+### Edit or Update Album by Id [PUT]
+
+With method PUT, you can edit or update your Album. You should send the data
+in body to make a change.
+
++ Request (application/json)
+
+        {
+            "title": "update Album"
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (Update Album)
+
+### Delete Album by Id [DELETE]
+
+It use to delete post by id.
+
++ Request (application/json)
+
+        {
+            "Id": 1
+        }
+
++ Response 201 (application/json)
+
+        {
+            "Success to delete." 
+        }
+
+
+
+## Data Structures
+
+### Albums
+
++ userId: 1,
++ id: 1,
++ title: `quidem molestiae enim`
+
+### New Album
+
++ userId: 1,
++ id: 2,
++ title: `new album`
+
+### Update Album
+
++ userId: 1,
++ id: 1,
++ title: `update album`

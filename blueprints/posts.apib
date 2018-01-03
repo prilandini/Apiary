@@ -1,0 +1,127 @@
+FORMAT: 1A
+HOST: http://localhost:8000/
+
+# Posts
+
+This is apiary from JSON place holder for root posts.
+
+## Api for Show All Posts [/posts]
+
+### Show All Posts [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Posts])
+
+### Create a New Post [POST]
+
+With method POST, you can make new data in post by use same endpoint but different method.
+And you should to send request data in Body with data type json.
+
++ Request (application/json)
+
+        {
+            "userId": 1,
+            "title": "Add again",
+            "body" : "For make new post" 
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /posts/4
+
+    + Attributes (New Post)
+
+      
+## Api for show post by id [/posts/1]
+
+### Show Post by Id [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (Posts)
+
+### Edit or Update Post by Id [PUT]
+
+With method PUT, you can edit or update your data in your post. You should send the data
+in body to make a change.
+
++ Request (application/json)
+
+        {
+            "Id": 1,
+            "title": "First Post",
+            "body" : "This post have changes." 
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (Update Post)
+
+### Delete Post by Id [DELETE]
+
+It use to delete post by id.
+
++ Request (application/json)
+
+        {
+            "Id": 1
+        }
+
++ Response 201 (application/json)
+
+        {
+            "Success to delete." 
+        }
+
+
+## Api for Show Comments in Post with Id 1 [/posts/1/comments]
+
+### Show All Comments in Id Post 1 [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Comments])
+
+
+## Api for Show All Posts in One User by User Id [/posts?userId=1]
+
+### Show All Posts in User Id 1 [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Posts])
+
+
+## Data Structures
+
+### New Post
+
++ `userId`: 1,
++ `id`: 4,
++ `title`: `Add again`,
++ `body`: `For make new post`
+
+### Posts
+
++ userId: 1,
++ id: 1,
++ title: `First Post`,
++ body: `Hello world!`
+
+### Update Post
+
++ userId: 1,
++ id: 1,
++ title: `First Post`,
++ body : `This post have changes.`
+
+### Comments
+
++ postId: 1,
++ id: 1,
++ name: `Lisa`,
++ email: `lisa@example.com`,
++ body: `Comment by Lisa.`

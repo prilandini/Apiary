@@ -1,0 +1,115 @@
+FORMAT: 1A
+HOST: http://localhost:8000/
+
+# Comments
+
+This is apiary from JSON place holder for root comments.
+
+
+## Api for Show All Comments [/comments]
+
+### Show All Comments [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Comments])
+
+### Create a New Comments [POST]
+
+With method POST, you can make new data in comment by use same endpoint but different method.
+And you should to send request data in Body with data type json.
+
++ Request (application/json)
+
+        {
+            "postId": 1,
+            "name": "Pril",
+            "email": "pril@example.com",
+            "body": "New comment by pril."
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /comments/2
+
+    + Attributes (New Comment)
+
+      
+## Api for Show Comment by id [/comments/1]
+
+### Show Comment by Id [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (Comments)
+
+### Edit or Update Comment by Id [PUT]
+
+With method PUT, you can edit or update your data in your comment. You should send the data
+in body to make a change.
+
++ Request (application/json)
+
+        {
+            "name": "Lisa",
+            "email": "lisa@example.com",
+            "body": "Update comment by Lisa." 
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (Update Comment)
+
+### Delete Comment by Id [DELETE]
+
+It use to delete comment by id.
+
++ Request (application/json)
+
+        {
+            "Id": 1
+        }
+
++ Response 201 (application/json)
+
+        {
+            "Success to delete." 
+        }
+
+
+## Api for Show All Comments in One Post by Post Id [/comments?postId=1]
+
+### Show All Comments in Post Id 1 [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Comments])
+
+
+## Data Structures
+
+### Comments
+
++ postId: 1,
++ id: 1,
++ name: `Lisa`,
++ email: `lisa@example.com`,
++ body: `Comment by Lisa`.
+
+### New Comment
+
++ "postId": 1,
++ id: 2,
++ name: `Pril`,
++ email: `pril@example.com`,
++ body: `New comment by pril.`
+
+### Update Comment
+
++ postId: 1,
++ id: 1,
++ name: `Lisa`,
++ email: `lisa@example.com`,
++ body: `Update comment by Lisa.`

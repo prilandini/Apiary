@@ -1,0 +1,103 @@
+FORMAT: 1A
+HOST: http://localhost:8000/
+
+# Todos
+
+This is apiary from JSON place holder for root todos.
+
+
+## Api for Show All Todos [/todos]
+
+### Show All Todos [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Todos])
+
+### Create a New Todos [POST]
+
+With method POST, you can make new Todos by use same endpoint but different method.
+And you should to send request data in Body with data type json.
+
++ Request (application/json)
+
+        {
+            "userId": 1,
+            "title": "tidur",
+            "completed": false
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /todos/2
+
+    + Attributes (New Todos)
+
+      
+## Api for Show Todos by id [/todos/1]
+
+### Show Todos by Id [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (Todos)
+
+### Edit or Update Todos by Id [PUT]
+
+With method PUT, you can edit or update your Todos. You should send the data
+in body to make a change.
+
++ Request (application/json)
+
+        {
+            "userId": 1,
+            "title": "makan",
+            "completed": true
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (Update Todos)
+
+### Delete Todos by Id [DELETE]
+
+It use to delete Todos by id.
+
++ Request (application/json)
+
+        {
+            "Id": 1
+        }
+
++ Response 201 (application/json)
+
+        {
+            "Success to delete." 
+        }
+
+
+
+## Data Structures
+
+### Todos
+
++ userId: 1,
++ id: 1,
++ title: `makan`,
++ completed: false
+
+### New Todos
+
++ userId: 1,
++ id: 2,
++ title: `tidur`,
++ completed: false
+
+### Update Todos
+
++ userId: 1,
++ id: 1,
++ title: `makan`,
++ completed: true

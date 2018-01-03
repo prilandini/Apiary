@@ -1,0 +1,103 @@
+FORMAT: 1A
+HOST: http://localhost:8000/
+
+# Photos
+
+This is apiary from JSON place holder for root photos.
+
+
+## Api for Show All Photos [/photos]
+
+### Show All Photos [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Photos])
+
+### Create a New Photos [POST]
+
+With method POST, you can make new photo by use same endpoint but different method.
+And you should to send request data in Body with data type json.
+
++ Request (application/json)
+
+        {
+            "userId": 1,
+            "title": "new photo"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /photos/2
+
+    + Attributes (New Photo)
+
+      
+## Api for Show Photos by id [/photos/1]
+
+### Show Photos by Id [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (Photos)
+
+### Edit or Update Photos by Id [PUT]
+
+With method PUT, you can edit or update your Photo. You should send the data
+in body to make a change.
+
++ Request (application/json)
+
+        {
+            "title": "update Album"
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (Update Photo)
+
+### Delete Photos by Id [DELETE]
+
+It use to delete photo by id.
+
++ Request (application/json)
+
+        {
+            "Id": 1
+        }
+
++ Response 201 (application/json)
+
+        {
+            "Success to delete." 
+        }
+
+
+
+## Data Structures
+
+### Photos
+
++ albumId: 1,
++ id: 1,
++ title: `accusamus beatae ad facilis cum similique qui sunt`,
++ url: `http://placehold.it/600/92c952`,
++ thumbnailUrl: `http://placehold.it/150/92c952`
+
+### New Photo
+
++ albumId: 1,
++ id: 2,
++ title: `new photo`,
++ url: `http://placehold.it/600/771796`,
++ thumbnailUrl: `http://placehold.it/150/771796`
+
+### Update Photo
+
++ albumId: 1,
++ id: 1,
++ title: `update photo`,
++ url: `http://placehold.it/600/24f355`,
++ thumbnailUrl: `http://placehold.it/600/24f355`
