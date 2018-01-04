@@ -23,7 +23,9 @@ And you should to send request data in Body with data type json.
 
         {
             "userId": 1,
-            "title": "new photo"
+            "title": "new photo",
+            "url": "http://placehold.it/600/24f355",
+            "thumbnailUrl": "http://placehold.it/600/24f355"
         }
 
 + Response 201 (application/json)
@@ -54,7 +56,7 @@ in body to make a change.
             "title": "update Album"
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Attributes (Update Photo)
 
@@ -62,16 +64,10 @@ in body to make a change.
 
 It use to delete photo by id.
 
-+ Request (application/json)
++ Response 200 (application/json)
 
         {
-            "Id": 1
-        }
-
-+ Response 201 (application/json)
-
-        {
-            "Success to delete." 
+            "message": "Success to delete." 
         }
 
 

@@ -23,8 +23,7 @@ And you should to send request data in Body with data type json.
 
         {
             "postId": 1,
-            "name": "Pril",
-            "email": "pril@example.com",
+            "userId": 1,
             "body": "New comment by pril."
         }
 
@@ -58,7 +57,7 @@ in body to make a change.
             "body": "Update comment by Lisa." 
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Attributes (Update Comment)
 
@@ -66,16 +65,10 @@ in body to make a change.
 
 It use to delete comment by id.
 
-+ Request (application/json)
++ Response 200 (application/json)
 
         {
-            "Id": 1
-        }
-
-+ Response 201 (application/json)
-
-        {
-            "Success to delete." 
+            "message": "Success to delete." 
         }
 
 
@@ -100,7 +93,7 @@ It use to delete comment by id.
 
 ### New Comment
 
-+ "postId": 1,
++ postId: 1,
 + id: 2,
 + name: `Pril`,
 + email: `pril@example.com`,

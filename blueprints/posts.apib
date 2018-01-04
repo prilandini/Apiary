@@ -21,7 +21,6 @@ And you should to send request data in Body with data type json.
 + Request (application/json)
 
         {
-            "userId": 1,
             "title": "Add again",
             "body" : "For make new post" 
         }
@@ -30,12 +29,12 @@ And you should to send request data in Body with data type json.
 
     + Headers
 
-            Location: /posts/4
+            Location: /posts/{id}
 
     + Attributes (New Post)
 
       
-## Api for show post by id [/posts/1]
+## Api for show post by id [/posts/{id}]
 
 ### Show Post by Id [GET]
 
@@ -51,12 +50,11 @@ in body to make a change.
 + Request (application/json)
 
         {
-            "Id": 1,
             "title": "First Post",
             "body" : "This post have changes." 
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Attributes (Update Post)
 
@@ -64,16 +62,10 @@ in body to make a change.
 
 It use to delete post by id.
 
-+ Request (application/json)
++ Response 200 (application/json)
 
         {
-            "Id": 1
-        }
-
-+ Response 201 (application/json)
-
-        {
-            "Success to delete." 
+            "message": "Success to delete." 
         }
 
 

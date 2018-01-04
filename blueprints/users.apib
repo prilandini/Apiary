@@ -91,7 +91,7 @@ in body to make a change.
             }
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Attributes (Update Users)
 
@@ -99,16 +99,10 @@ in body to make a change.
 
 It use to delete Users by id.
 
-+ Request (application/json)
++ Response 200 (application/json)
 
         {
-            "Id": 1
-        }
-
-+ Response 201 (application/json)
-
-        {
-            "Success to delete." 
+            "message": "Success to delete." 
         }
 
 
@@ -126,9 +120,9 @@ It use to delete Users by id.
     + suite: `Apt. 556`,
     + city: `Gwenborough`,
     + zipcode: `92998-3874`,
-    + geo: {
-    + lat: `-37.3159`,
-    + lng: `81.1496`
+    + geo
+        + lat: `-37.3159`,
+        + lng: `81.1496`
 + phone: `1-770-736-8031 x56442`,
 + website: `hildegard.org`,
 + company 
@@ -148,9 +142,9 @@ It use to delete Users by id.
     + suite: `Suite 879`,
     + city: `Wisokyburgh`,
     + zipcode: `90566-7771`,
-    + geo: {
-    + lat: `-43.9509`,
-    + lng: `-34.4618`
+    + geo
+        + lat: `-43.9509`,
+        + lng: `-34.4618`
 + phone: `010-692-6593 x09125`,
 + website: `anastasia.net`,
 + company
@@ -169,9 +163,9 @@ It use to delete Users by id.
     + suite: `Apt. 556`,
     + city: `Gwenborough`,
     + zipcode: `92998-3874`,
-    + geo: {
-    + lat: `-37.3159`,
-    + lng: `81.1496`
+    + geo
+        + lat: `-37.3159`,
+        + lng: `81.1496`
 + phone: `1-770-736-8031 x56442`,
 + website: `hildegard.org`,
 + company 
