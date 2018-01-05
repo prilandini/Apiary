@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Todo;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -13,7 +14,18 @@ class TodoController extends Controller
      */
     public function index()
     {
-        //
+        $todos = Todo::all();
+
+        $result = $todos->map(function($todo) {
+            return [
+                "userId" => $todo->userId,
+                "id" => $todo->id,
+                "title" => $todo->title,
+                "completed" => $todo->completed 
+            ];
+        });
+
+        return $result;
     }
 
     /**
@@ -34,7 +46,23 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        request()->validate([
+            "userId" => 'required',
+            "title" => 'required',
+            "completed" => 'required'
+        ]);
+
+        $todo = Todo::create($request->all());
+
+        $result = [
+            "userId" => $todo->userId,
+            "id" => $todo->id,
+            "title" => $todo->title,
+            "completed" => $todo->completed
+        ];
+
+        return $result;
     }
 
     /**
@@ -45,7 +73,16 @@ class TodoController extends Controller
      */
     public function show($id)
     {
-        //
+        $todo = Todo::find($id);
+        
+        $result = [
+            "userId" => $todo->userId,
+            "id" => $todo->id,
+            "title" => $todo->title,
+            "completed" => $todo->completed
+        ];
+
+        return $result;
     }
 
     /**
@@ -68,7 +105,17 @@ class TodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $todo = Todo::find($id);
+        $todo->update(request()->all());
+
+        $result = [
+            "userId" => $todo->userId,
+            "id" => $todo->id,
+            "title" => $todo->title,
+            "completed" => $todo->completed
+        ];
+
+        return $result;
     }
 
     /**
@@ -79,6 +126,10 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = Todo::find($id);
+        $todo->delete();
+        $message = ["message"=>"success to delete"];
+        
+        return $message;
     }
 }

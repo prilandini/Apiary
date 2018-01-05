@@ -1,13 +1,17 @@
 FORMAT: 1A
 HOST: http://localhost:8000/
 
-# Posts
+# All Endpoint
 
-This is apiary from JSON place holder for root posts.
+This is apiary from JSON place holder for all endpoint.
+There are users, posts, comments, albums, photos, and todos.
 
-## Api for Show All Posts [/posts]
+
+## Posts [/posts]
 
 ### Show All Posts [GET]
+
+With method GET in this endpoint, we can see all data posts from database.
 
 + Response 200 (application/json)
 
@@ -15,12 +19,14 @@ This is apiary from JSON place holder for root posts.
 
 ### Create a New Post [POST]
 
-With method POST, you can make new data in post by use same endpoint but different method.
-And you should to send request data in Body with data type json.
+With method POST in this endpoint, we make a new post and save it in database.
+Of course we should to send data in body, like userId, title and body. After the data
+saved in database, we get new endpoint with id like in headers response.
 
 + Request (application/json)
 
         {
+            "userId" : 1,
             "title": "Add again",
             "body" : "For make new post" 
         }
@@ -33,34 +39,39 @@ And you should to send request data in Body with data type json.
 
     + Attributes (New Post)
 
-      
-## Api for show post by id [/posts/{id}]
 
-### Show Post by Id [GET]
+## Access One Data Post [/posts/{id}]
+
+### Show One Post[GET]
+
+We can see one post with input id in endpoint. Of course with method GET to
+get the data.
 
 + Response 200 (application/json)
 
     + Attributes (Posts)
 
-### Edit or Update Post by Id [PUT]
+### Edit or Update Post [PUT]
 
-With method PUT, you can edit or update your data in your post. You should send the data
-in body to make a change.
+Different endpoint with method GET and POST, in here we need id post in endpoint 
+and choose method PUT for edit or update the data. Just send data title and body 
+for changes. 
 
 + Request (application/json)
 
         {
             "title": "First Post",
-            "body" : "This post have changes." 
+            "body" : "This post have changes."
         }
 
 + Response 200 (application/json)
 
     + Attributes (Update Post)
 
-### Delete Post by Id [DELETE]
+### Delete Post [DELETE]
 
-It use to delete post by id.
+To delete the data, we can choose method DELETE in this endpoint.
+There is a message if it success to deleted.
 
 + Response 200 (application/json)
 
@@ -69,18 +80,22 @@ It use to delete post by id.
         }
 
 
-## Api for Show Comments in Post with Id 1 [/posts/1/comments]
+## All Comments in One Post [/posts/1/comments]
 
-### Show All Comments in Id Post 1 [GET]
+This endpoint used to show all Comment in one post.
+
+### Show All Comments in One Post [GET] 
 
 + Response 200 (application/json)
 
     + Attributes (array[Comments])
 
 
-## Api for Show All Posts in One User by User Id [/posts?userId=1]
+## All Posts in One User [/posts?userId=1]
 
-### Show All Posts in User Id 1 [GET]
+This endpoint used to show all post in one user.
+
+### Show All Posts by One User [GET] 
 
 + Response 200 (application/json)
 

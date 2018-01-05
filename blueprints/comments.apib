@@ -6,9 +6,11 @@ HOST: http://localhost:8000/
 This is apiary from JSON place holder for root comments.
 
 
-## Api for Show All Comments [/comments]
+## Comments [/comments]
 
 ### Show All Comments [GET]
+
+With method GET, we can see all data comments from database.
 
 + Response 200 (application/json)
 
@@ -16,7 +18,7 @@ This is apiary from JSON place holder for root comments.
 
 ### Create a New Comments [POST]
 
-With method POST, you can make new data in comment by use same endpoint but different method.
+With method POST, we can make new data in comment by use same endpoint but different method.
 And you should to send request data in Body with data type json.
 
 + Request (application/json)
@@ -36,7 +38,7 @@ And you should to send request data in Body with data type json.
     + Attributes (New Comment)
 
       
-## Api for Show Comment by id [/comments/1]
+## Access One Comment [/comments/1]
 
 ### Show Comment by Id [GET]
 

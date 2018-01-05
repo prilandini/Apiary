@@ -33,7 +33,11 @@ class UserController extends Controller
                         ]
                     ],
                 "phone" => $user->phone,
-                "company" => json_decode($user->company)
+                "company" => [
+                    "name"=> json_decode($user->company["name"]),
+                    "catchPhrase"=> json_decode($user->company["catchPhrase"]),
+                    "bs"=> json_decode($user->company["bs"])
+                    ]
                 ]; 
         });
         
@@ -85,7 +89,11 @@ class UserController extends Controller
                     ]
                 ],
             "phone" => $user->phone,
-            "company" => json_decode($user->company)
+            "company" => [
+                "name"=> json_decode($user->company["name"]),
+                "catchPhrase"=> json_decode($user->company["catchPhrase"]),
+                "bs"=> json_decode($user->company["bs"])
+                ]
         ];
 
         return $result;
@@ -117,7 +125,11 @@ class UserController extends Controller
                     ]
                 ],
             "phone" => $user->phone,
-            "company" => json_decode($user->company)
+            "company" => [
+                "name"=> json_decode($user->company["name"]),
+                "catchPhrase"=> json_decode($user->company["catchPhrase"]),
+                "bs"=> json_decode($user->company["bs"])
+                ]
         ];
 
         return $result;
@@ -178,6 +190,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         $message = ["message"=>"success to delete"];
+        
         return $message;
     }
 }
