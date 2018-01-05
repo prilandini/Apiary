@@ -34,9 +34,9 @@ class UserController extends Controller
                     ],
                 "phone" => $user->phone,
                 "company" => [
-                    "name"=> json_decode($user->company["name"]),
-                    "catchPhrase"=> json_decode($user->company["catchPhrase"]),
-                    "bs"=> json_decode($user->company["bs"])
+                    "name"=> $user->company["name"],
+                    "catchPhrase"=> $user->company["catchPhrase"],
+                    "bs"=> $user->company["bs"]
                     ]
                 ]; 
         });
@@ -90,10 +90,11 @@ class UserController extends Controller
                 ],
             "phone" => $user->phone,
             "company" => [
-                "name"=> json_decode($user->company["name"]),
-                "catchPhrase"=> json_decode($user->company["catchPhrase"]),
-                "bs"=> json_decode($user->company["bs"])
-                ]
+                "name"=> $user->company["name"],
+                "catchPhrase"=> $user->company["catchPhrase"],
+                "bs"=> $user->company["bs"]
+            ],
+            
         ];
 
         return $result;
@@ -126,9 +127,9 @@ class UserController extends Controller
                 ],
             "phone" => $user->phone,
             "company" => [
-                "name"=> json_decode($user->company["name"]),
-                "catchPhrase"=> json_decode($user->company["catchPhrase"]),
-                "bs"=> json_decode($user->company["bs"])
+                "name"=> $user->company["name"],
+                "catchPhrase"=> $user->company["catchPhrase"],
+                "bs"=> $user->company["bs"]
                 ]
         ];
 
@@ -173,7 +174,11 @@ class UserController extends Controller
                     ]
                 ],
             "phone" => $user->phone,
-            "company" => json_decode($user->company)
+            "company" => [
+                "name"=> $user->company["name"],
+                "catchPhrase"=> $user->company["catchPhrase"],
+                "bs"=> $user->company["bs"]
+                ]
         ];
 
         return $result;
