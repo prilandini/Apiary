@@ -1,0 +1,675 @@
+FORMAT: 1A
+HOST: http://localhost:8000/
+
+# All Endpoint
+
+This is apiary from JSON place holder for all endpoint.
+There are users, posts, comments, albums, photos, and todos.
+
+
+## Users [/users]
+
+### Show All Users [GET]
+
+With method GET in this endpoint, we can see all data users from database.
+
++ Response 200 (application/json)
+
+    + Attributes (array[Users])
+
+### Create a New Users [POST]
+
+With method POST, you can make new Users by use same endpoint but different method.
+And you should to send request data in Body with data type json.
+
++ Request (application/json)
+
+        {
+            "name": "Ervin Howell",
+            "username": "Antonette",
+            "email": "Shanna@melissa.tv",
+            "address": {
+                "street": "Victor Plains",
+                "suite": "Suite 879",
+                "city": "Wisokyburgh",
+                "zipcode": "90566-7771",
+                "geo": {
+                    "lat": "-43.9509",
+                    "lng": "-34.4618"
+                }
+            },
+            "phone": "010-692-6593 x09125",
+            "website": "anastasia.net",
+            "company": {
+                "name": "Deckow-Crist",
+                "catchPhrase": "Proactive didactic contingency",
+                "bs": "synergize scalable supply-chains"
+            }
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /users/2
+
+    + Attributes (New Users)
+
+      
+## Api for Show Users by id [/users/1]
+
+### Show Users by Id [GET]
+
+We can see one user with input id in endpoint. Of course with method GET to
+get the data.
+
++ Response 200 (application/json)
+
+    + Attributes (Users)
+
+### Edit or Update Users by Id [PUT]
+
+With method PUT, you can edit or update your Users. You should send the data
+in body to make a change.
+
++ Request (application/json)
+
+        {
+            "name": "Leanne Graham",
+            "username": "Bretta",
+            "email": "Sincere@april.biz",
+            "address": {
+                "street": "Kulas Light",
+                "suite": "Apt. 556",
+                "city": "Gwenborough",
+                "zipcode": "92998-3874",
+                "geo": {
+                    "lat": "-37.3159",
+                    "lng": "81.1496"
+                }
+            },
+            "phone": "1-770-736-8031 x56442",
+            "website": "hildegard.org",
+            "company": {
+                "name": "Romaguera-Crona",
+                "catchPhrase": "Multi-layered client-server neural-net",
+                "bs": "harness real-time e-markets"
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Attributes (Update Users)
+
+### Delete Users by Id [DELETE]
+
+It use to delete Users by id.
+
++ Response 200 (application/json)
+
+        {
+            "message": "Success to delete." 
+        }
+
+
+
+## Posts [/posts]
+
+### Show All Posts [GET]
+
+With method GET in this endpoint, we can see all data posts from database.
+
++ Response 200 (application/json)
+
+    + Attributes (array[Posts])
+
+### Create a New Post [POST]
+
+With method POST in this endpoint, we make a new post and save it in database.
+Of course we should to send data in body, like userId, title and body with data 
+type json. After the data saved in database, we get new endpoint with id like 
+in headers response.
+
++ Request (application/json)
+
+        {
+            "userId" : 1,
+            "title": "Add again",
+            "body" : "For make new post" 
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /posts/{id}
+
+    + Attributes (New Post)
+
+
+## Access One Data Post [/posts/1]
+
+### Show One Post[GET]
+
+We can see one post with input id in endpoint. Of course with method GET to
+get the data.
+
++ Response 200 (application/json)
+
+    + Attributes (Posts)
+
+### Edit or Update Post [PUT]
+
+Different endpoint with method GET and POST, in here we need id post in endpoint 
+and choose method PUT for edit or update the data. Just send data title and body 
+for changes. 
+
++ Request (application/json)
+
+        {
+            "title": "First Post",
+            "body" : "This post have changes."
+        }
+
++ Response 200 (application/json)
+
+    + Attributes (Update Post)
+
+### Delete Post [DELETE]
+
+To delete the data, we can choose method DELETE in this endpoint.
+There is a message if it success to deleted.
+
++ Response 200 (application/json)
+
+        {
+            "message": "Success to delete." 
+        }
+
+
+## All Comments in One Post [/posts/1/comments]
+
+This endpoint used to show all Comment in one post.
+
+### Show All Comments in One Post [GET] 
+
++ Response 200 (application/json)
+
+    + Attributes (array[Comments])
+
+
+## All Posts in One User [/posts?userId=1]
+
+This endpoint used to show all post in one user.
+
+### Show All Posts by One User [GET] 
+
++ Response 200 (application/json)
+
+    + Attributes (array[Posts])
+
+
+
+## Comments [/comments]
+
+### Show All Comments [GET]
+
+With method GET, we can see all data comments from database.
+
++ Response 200 (application/json)
+
+    + Attributes (array[Comments])
+
+### Create a New Comments [POST]
+
+With method POST, we can make new data in comment by use same endpoint but different method.
+And you should to send request data in Body with data type json.
+
++ Request (application/json)
+
+        {
+            "postId": 1,
+            "userId": 1,
+            "body": "New comment by pril."
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /comments/2
+
+    + Attributes (New Comment)
+
+      
+## Access One Comment [/comments/1]
+
+### Show Comment by Id [GET]
+
+With method GET in this endpoint, we can see one comment.
+
++ Response 200 (application/json)
+
+    + Attributes (Comments)
+
+### Edit or Update Comment by Id [PUT]
+
+With method PUT, you can edit or update your data in your comment. You should send the data
+in body to make a change.
+
++ Request (application/json)
+
+        {
+            "name": "Lisa",
+            "email": "lisa@example.com",
+            "body": "Update comment by Lisa." 
+        }
+
++ Response 200 (application/json)
+
+    + Attributes (Update Comment)
+
+### Delete Comment by Id [DELETE]
+
+It use to delete comment by id.
+
++ Response 200 (application/json)
+
+        {
+            "message": "Success to delete." 
+        }
+
+
+## Show All Comments in One Post [/comments?postId=1]
+
+We can see all comments in one post by this endpoint.
+
+### Show All Comments in Post Id 1 [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Comments])
+
+
+
+## Albums [/albums]
+
+### Show All Albums [GET]
+
+With method GET in this endpoint, we can see all albums in database.
+
++ Response 200 (application/json)
+
+    + Attributes (array[Albums])
+
+### Create a New Albums [POST]
+
+With method POST, you can make new albums by use same endpoint but different method.
+And you should to send request data in Body with data type json.
+
++ Request (application/json)
+
+        {
+            "userId": 1,
+            "title": "new albums"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /albums/2
+
+    + Attributes (New Album)
+
+      
+## Show Album by id [/albums/1]
+
+### Show Album by Id [GET]
+
+With method GET in this endpoint, we can see all albums in database.
+
++ Response 200 (application/json)
+
+    + Attributes (Albums)
+
+### Edit or Update Album by Id [PUT]
+
+With method PUT, you can edit or update your Album. You should send the data
+in body to make a change.
+
++ Request (application/json)
+
+        {
+            "title": "update Album"
+        }
+
++ Response 200 (application/json)
+
+    + Attributes (Update Album)
+
+### Delete Album by Id [DELETE]
+
+It use to delete post by id.
+
++ Response 200 (application/json)
+
+        {
+            "message": "Success to delete." 
+        }
+
+
+
+## Photos [/photos]
+
+### Show All Photos [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Photos])
+
+### Create a New Photos [POST]
+
+With method POST, you can make new photo by use same endpoint but different method.
+And you should to send request data in Body with data type json.
+
++ Request (application/json)
+
+        {
+            "userId": 1,
+            "title": "new photo",
+            "url": "http://placehold.it/600/24f355",
+            "thumbnailUrl": "http://placehold.it/600/24f355"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /photos/2
+
+    + Attributes (New Photo)
+
+      
+## Show Photos by id [/photos/1]
+
+### Show Photos by Id [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (Photos)
+
+### Edit or Update Photos by Id [PUT]
+
+With method PUT, you can edit or update your Photo. You should send the data
+in body to make a change.
+
++ Request (application/json)
+
+        {
+            "title": "update Album"
+        }
+
++ Response 200 (application/json)
+
+    + Attributes (Update Photo)
+
+### Delete Photos by Id [DELETE]
+
+It use to delete photo by id.
+
++ Response 200 (application/json)
+
+        {
+            "message": "Success to delete." 
+        }
+
+
+
+## Todos [/todos]
+
+### Show All Todos [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Todos])
+
+### Create a New Todos [POST]
+
+With method POST, you can make new Todos by use same endpoint but different method.
+And you should to send request data in Body with data type json.
+
++ Request (application/json)
+
+        {
+            "userId": 1,
+            "title": "tidur",
+            "completed": false
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /todos/2
+
+    + Attributes (New Todos)
+
+      
+## Show Todo by id [/todos/1]
+
+### Show Todo [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (Todos)
+
+### Edit or Update Todo [PUT]
+
+With method PUT, you can edit or update your Todos. You should send the data
+in body to make a change.
+
++ Request (application/json)
+
+        {
+            "userId": 1,
+            "title": "makan",
+            "completed": true
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (Update Todos)
+
+### Delete Todo [DELETE]
+
+It use to delete Todos by id.
+
++ Request (application/json)
+
+        {
+            "Id": 1
+        }
+
++ Response 201 (application/json)
+
+        {
+            "message": "Success to delete." 
+        }
+
+
+
+
+## Data Structures
+
+### Users
+
++ id: 1,
++ name: `Leanne Graham`,
++ username: `Bret`,
++ email: `Sincere@april.biz`,
++ address
+    + street: `Kulas Light`,
+    + suite: `Apt. 556`,
+    + city: `Gwenborough`,
+    + zipcode: `92998-3874`,
+    + geo
+        + lat: `-37.3159`,
+        + lng: `81.1496`
++ phone: `1-770-736-8031 x56442`,
++ website: `hildegard.org`,
++ company 
+    + name: `Romaguera-Crona`,
+    + catchPhrase: `Multi-layered client-server neural-net`,
+    + bs: `harness real-time e-markets`
+
+
+### New Users
+
++ id: 2,
++ name: `Ervin Howell`,
++ username: `Antonette`,
++ email: `Shanna@melissa.tv`,
++ address
+    + street: `Victor Plains`,
+    + suite: `Suite 879`,
+    + city: `Wisokyburgh`,
+    + zipcode: `90566-7771`,
+    + geo
+        + lat: `-43.9509`,
+        + lng: `-34.4618`
++ phone: `010-692-6593 x09125`,
++ website: `anastasia.net`,
++ company
+    + name: `Deckow-Crist`,
+    + catchPhrase: `Proactive didactic contingency`,
+    + bs: `synergize scalable supply-chains`
+
+### Update Users
+
++ id: 1,
++ name: `Leanne Graham`,
++ username: `Bretta`,
++ email: `Sincere@april.biz`,
++ address
+    + street: `Kulas Light`,
+    + suite: `Apt. 556`,
+    + city: `Gwenborough`,
+    + zipcode: `92998-3874`,
+    + geo
+        + lat: `-37.3159`,
+        + lng: `81.1496`
++ phone: `1-770-736-8031 x56442`,
++ website: `hildegard.org`,
++ company 
+    + name: `Romaguera-Crona`,
+    + catchPhrase: `Multi-layered client-server neural-net`,
+    + bs: `harness real-time e-markets`
+    
+### New Post
+
++ `userId`: 1,
++ `id`: 4,
++ `title`: `Add again`,
++ `body`: `For make new post`
+
+### Posts
+
++ userId: 1,
++ id: 1,
++ title: `First Post`,
++ body: `Hello world!`
+
+### Update Post
+
++ userId: 1,
++ id: 1,
++ title: `First Post`,
++ body : `This post have changes.`
+
+### Comments
+
++ postId: 1,
++ id: 1,
++ name: `Lisa`,
++ email: `lisa@example.com`,
++ body: `Comment by Lisa.`
+
+### New Comment
+
++ postId: 1,
++ id: 2,
++ name: `Pril`,
++ email: `pril@example.com`,
++ body: `New comment by pril.`
+
+### Update Comment
+
++ postId: 1,
++ id: 1,
++ name: `Lisa`,
++ email: `lisa@example.com`,
++ body: `Update comment by Lisa.`
+
+### Albums
+
++ userId: 1,
++ id: 1,
++ title: `quidem molestiae enim`
+
+### New Album
+
++ userId: 1,
++ id: 2,
++ title: `new album`
+
+### Update Album
+
++ userId: 1,
++ id: 1,
++ title: `update album`
+
+### Photos
+
++ albumId: 1,
++ id: 1,
++ title: `accusamus beatae ad facilis cum similique qui sunt`,
++ url: `http://placehold.it/600/92c952`,
++ thumbnailUrl: `http://placehold.it/150/92c952`
+
+### New Photo
+
++ albumId: 1,
++ id: 2,
++ title: `new photo`,
++ url: `http://placehold.it/600/771796`,
++ thumbnailUrl: `http://placehold.it/150/771796`
+
+### Update Photo
+
++ albumId: 1,
++ id: 1,
++ title: `update photo`,
++ url: `http://placehold.it/600/24f355`,
++ thumbnailUrl: `http://placehold.it/600/24f355`
+
+### Todos
+
++ userId: 1,
++ id: 1,
++ title: `makan`,
++ completed: false
+
+### New Todos
+
++ userId: 1,
++ id: 2,
++ title: `tidur`,
++ completed: false
+
+### Update Todos
+
++ userId: 1,
++ id: 1,
++ title: `makan`,
++ completed: true
