@@ -124,12 +124,14 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Todo $todo)
     {
-        $todo = Todo::find($id);
         $todo->delete();
-        $message = ["message"=>"success to delete"];
         
-        return $message;
+        if ($todo) {
+            return response(json_encode([],JSON_FORCE_OBJECT),200,[
+                'Content-Type'=>'applications/json'
+            ]);
+        }
     }
 }
