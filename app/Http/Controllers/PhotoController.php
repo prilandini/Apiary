@@ -128,11 +128,14 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Photo $photo)
     {
-        $photo = Photo::find($id);
         $photo->delete();
-        $message = ["message"=>"success to delete"];
-        return $message;
+        
+        if ($photo) {
+            return response(json_encode([],JSON_FORCE_OBJECT),200,[
+                'Content-Type'=>'application/json'
+            ]);
+        }
     }
 }

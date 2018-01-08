@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use Illuminate\Http\Request;
+use function GuzzleHttp\json_encode;
 
 class AlbumController extends Controller
 {
@@ -118,12 +119,15 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $album = Album::find($id);
-        $album->delete();
-        $message = ["message"=>"success to download"];
 
-        return $message;
+    public function destroy(Album $album)
+    {
+        $album->delete();
+        
+        if ($album) {
+            return response(json_encode([],JSON_FORCE_OBJECT), 200, [
+                'Content-Type'=>'application/json'
+            ]);
+        }
     }
 }

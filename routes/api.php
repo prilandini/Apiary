@@ -19,13 +19,14 @@ Route::group(['middleware' => 'auth:api'],function(){
     });
 
     Route::resource('/users', 'UserController');
-    Route::resource('/posts', 'PostController');
+    Route::resource('/posts', 'PostController');    
     Route::resource('/comments', 'CommentController');
     Route::resource('/albums', 'AlbumController');
     Route::resource('/photos', 'PhotoController');
     Route::resource('/todos', 'TodoController');
 });
 
+Route::get('/posts/{post}/comments', 'PostController@getComment')->name('Posts.getComment');
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });

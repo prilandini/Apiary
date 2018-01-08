@@ -16,7 +16,11 @@ class CommentController extends Controller
     {
         // $comments = Comment::all()->load('user');
 
-        $comments = Comment::with('user')->get();
+        if ($id = request()->postId) {
+            $comments = Comment::where('postId', $id)->get();
+        } else {
+            $comments = Comment::with('user')->get();
+        }
 
         $result = $comments->map(function($comment) {
             return [
@@ -27,7 +31,7 @@ class CommentController extends Controller
                 "body" => $comment->body
             ];
         });
-
+        
         return $result;
     }
 
@@ -134,8 +138,9 @@ class CommentController extends Controller
     {
         $comment = Comment::find($id);
         $comment->delete();
-        $message = ["message"=>"success to delete"];
         
-        return $message;
+        if ($comment==true) {
+            return response(json_encode([],JSON_FORCE_OBJECT),200,['Content-Type'=>'applications/json']);
+        }
     }
 }

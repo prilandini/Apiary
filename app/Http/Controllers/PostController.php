@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        
+        $posts = null;
+
+        if ($id = request()->userId) {  
+            $posts = Post::where('userId', $id)->get();
+        } else {    
+            $posts = Post::get();
+        }
+
         $result = $posts->map(function($post) {
             return [
                 "userId" => $post->userId,
@@ -123,12 +130,32 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $post = Post::find($id);
         $post->delete();
-        $message = ["message"=>"success to delete"];
         
-        return $message;
+        if ($post) {
+            return response(json_encode([],JSON_FORCE_OBJECT),200,[
+                'Content-Type'=>'applications/json'
+            ]);
+        }
     }
+
+    public function getComment($id)
+    {
+        $comments = Comment::where('postId', $id)->get();
+
+        $result = $comments->map(function($comment) {
+            return [
+                "postId" => $comment->postId,
+                "id" => $comment->id,
+                "name" => $comment->user['name'],
+                "email" => $comment->user['email'],
+                "body" => $comment->body
+            ];
+        });
+
+        return $result;
+    }
+    
 }
