@@ -1,6 +1,6 @@
 # Apiary
 
-I make apiary about endpoint from https://jsonplaceholder.typicode.com/. There are six endpoint with method **GET, **POST**, **PUT**, **PATCH**, and **DELETE** in each endpoint. Below its endpoint list with method.
+I make [apiary](ttps://github.com/prilandini/Apiary/tree/master/blueprints) about endpoint from https://jsonplaceholder.typicode.com/. There are six endpoint with method **GET, **POST**, **PUT**, **PATCH**, and **DELETE** in each endpoint. Below its endpoint list with method. 
 
 1. /posts
     - GET	    /posts
@@ -46,5 +46,3 @@ I make apiary about endpoint from https://jsonplaceholder.typicode.com/. There a
     - POST	    /users
     - PUT	    /users/1
     - DELETE	/users/1
-
-You can see the apiary in folder blueprints/allRoot.apib. Other files in folder blueprints 
