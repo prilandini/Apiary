@@ -1,6 +1,6 @@
 # Apiary
 
-I make [apiary](https://github.com/prilandini/Apiary/blob/master/blueprints/allRoot.apib) about endpoint [REST API](https://jsonplaceholder.typicode.com/). There are six endpoint with method **GET, **POST**, **PUT**, **PATCH**, and **DELETE** in each endpoint. But I didn't make Patch method, I just use Put. Below its endpoints list with methods.
+I make [apiary](https://github.com/prilandini/Apiary/blob/master/blueprints/allRoot.apib) about endpoint [REST API](https://jsonplaceholder.typicode.com/). There are six endpoint with method **GET**, **POST**, **PUT**, **PATCH**, and **DELETE** in each endpoint. But I didn't make Patch method, I just use Put. Below its endpoints list with methods.
 
 1. /posts
     - GET	    /posts
