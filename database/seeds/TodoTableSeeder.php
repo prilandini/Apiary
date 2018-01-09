@@ -11,6 +11,10 @@ class TodoTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('todos')->insert([
+            'userId'=> 1,
+            'title'=> 'tidur',
+            'completed'=> false
+        ]);
     }
 }

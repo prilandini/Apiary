@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use function GuzzleHttp\json_encode;
 
 class UserTableSeeder extends Seeder
 {
@@ -12,9 +13,17 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => str_random(10),
-            'email' => str_random(10).'@gmail.com',
-            'password' => bcrypt('secret'),
+            'name'=> 'pril',
+            'username'=> 'priland',
+            'email'=> 'pril@gmail.com',
+            'city'=> 'Bandung',
+            'phone'=> '87654321',
+            'password'=> bcrypt('pril44'),
+            'company'=> json_encode([
+                'name'=> 'Name of Company', 
+                'catchPhrase'=> 'kjhgfds', 
+                'bs'=> 'asfg'
+            ])
         ]);
     }
 }

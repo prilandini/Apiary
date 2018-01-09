@@ -12,9 +12,9 @@ class PostTableSeeder extends Seeder
     public function run()
     {
         DB::table('posts')->insert([
-            'id' => 1,
-            'title' => "Example Post",
-            'body' => "This is data in post.",
+            'userId'=> 1,
+            'title'=> 'First Post',
+            'body' => 'This is user 1 first post.'
         ]);
     }
 }

@@ -11,6 +11,11 @@ class PhotoTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('photos')->insert([
+            'albumId'=> 1,
+            'title'=> 'new photo',
+            'url'=> 'http://placehold.it/600/24f355',
+            'thumbnailUrl'=> 'http://placehold.it/600/24f355'
+        ]);
     }
 }

@@ -11,6 +11,9 @@ class AlbumTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('albums')->insert([
+            'userId'=> 1,
+            'title'=> 'First Album'
+        ]);
     }
 }
