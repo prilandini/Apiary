@@ -14,14 +14,20 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = Todo::all();
+        $todos = null;
 
-        $result = $todos->map(function($todo) {
+        if ($id = request()->userId) {
+            $todos = Todo::where('userId', $id)->get();
+        } else {
+            $todos = Todo::get();
+        }
+
+        $result = $todos->map(function($todo) { 
             return [
                 "userId" => $todo->userId,
                 "id" => $todo->id,
                 "title" => $todo->title,
-                "completed" => $todo->completed 
+                "completed" => (boolean) $todo->completed 
             ];
         });
 
@@ -59,7 +65,7 @@ class TodoController extends Controller
             "userId" => $todo->userId,
             "id" => $todo->id,
             "title" => $todo->title,
-            "completed" => $todo->completed
+            "completed" => (boolean) $todo->completed
         ];
 
         return $result;
@@ -79,7 +85,7 @@ class TodoController extends Controller
             "userId" => $todo->userId,
             "id" => $todo->id,
             "title" => $todo->title,
-            "completed" => $todo->completed
+            "completed" => (boolean) $todo->completed
         ];
 
         return $result;
@@ -112,7 +118,7 @@ class TodoController extends Controller
             "userId" => $todo->userId,
             "id" => $todo->id,
             "title" => $todo->title,
-            "completed" => $todo->completed
+            "completed" => (boolean) $todo->completed
         ];
 
         return $result;

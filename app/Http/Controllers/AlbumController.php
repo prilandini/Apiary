@@ -15,8 +15,14 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $albums = Album::all();
-
+        $albums = null;
+        
+        if ($id = request()->userId) {
+            $albums = Album::where('userId', $id)->get();
+        } else {
+            $albums = Album::get();
+        }
+        
         $result = $albums->map(function($album) {
             return [
                 "userId" => $album->userId,
