@@ -49,10 +49,6 @@ And you should to send request data in Body with data type json.
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /users/2
-
     + Attributes (New Users)
 
       
@@ -109,6 +105,38 @@ It use to delete Users by id.
 
         {}
 
+## All Posts in One User [/users/1/posts]
+
+This endpoint used to show all photos in one user.
+
+### Show All Posts in One User [GET] 
+
++ Response 200 (application/json)
+
+    + Attributes (array[Posts])
+
+
+## All Albums in One User [/users/1/albums]
+
+This endpoint used to show all albums in one user.
+
+### Show All Albums in One User [GET] 
+
++ Response 200 (application/json)
+
+    + Attributes (array[Albums])
+
+
+## All Todos in One User [/users/1/todos]
+
+This endpoint used to show all todos in one user.
+
+### Show All Todos in One User [GET] 
+
++ Response 200 (application/json)
+
+    + Attributes (array[Todos])
+
 
 
 ## Posts [/posts]
@@ -137,10 +165,6 @@ in headers response.
         }
 
 + Response 201 (application/json)
-
-    + Headers
-
-            Location: /posts/{id}
 
     + Attributes (New Post)
 
@@ -231,10 +255,6 @@ And you should to send request data in Body with data type json.
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /comments/2
-
     + Attributes (New Comment)
 
       
@@ -310,10 +330,6 @@ And you should to send request data in Body with data type json.
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /albums/2
-
     + Attributes (New Album)
 
       
@@ -351,6 +367,28 @@ It use to delete post by id.
         {}
 
 
+## All Albums in one User [/albums?userId=1]
+
+This endpoint used to show all albums in one user.
+
+### Show All Albums in one User [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Albums])
+
+
+## All Photos in One Album [/albums/1/photos]
+
+This endpoint used to show all photos in one album.
+
+### Show All Photos in One Album [GET] 
+
++ Response 200 (application/json)
+
+    + Attributes (array[Photos])
+
+
 
 ## Photos [/photos]
 
@@ -375,10 +413,6 @@ And you should to send request data in Body with data type json.
         }
 
 + Response 201 (application/json)
-
-    + Headers
-
-            Location: /photos/2
 
     + Attributes (New Photo)
 
@@ -415,6 +449,17 @@ It use to delete photo by id.
         {}
 
 
+## All Photos in one Album [/photos?albumId=1]
+
+This endpoint used to show all photos in one album.
+
+### Show All Photos in one Album [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Photos])
+
+
 
 ## Todos [/todos]
 
@@ -438,10 +483,6 @@ And you should to send request data in Body with data type json.
         }
 
 + Response 201 (application/json)
-
-    + Headers
-
-            Location: /todos/2
 
     + Attributes (New Todos)
 
@@ -478,6 +519,17 @@ It use to delete Todos by id.
 + Response 200 (application/json)
 
         {}
+
+
+## All Todos in one User [/todos?userId=1]
+
+This endpoint used to show all todos in one user.
+
+### Show All Todos in one User [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Todos])
 
 
 
