@@ -49,10 +49,6 @@ And you should to send request data in Body with data type json.
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /users/2
-
     + Attributes (New Users)
 
       
@@ -109,6 +105,38 @@ It use to delete Users by id.
 
         {}
 
+## All Posts in One User [/users/1/posts]
+
+This endpoint used to show all photos in one user.
+
+### Show All Posts in One User [GET] 
+
++ Response 200 (application/json)
+
+    + Attributes (array[Posts])
+
+
+## All Albums in One User [/users/1/albums]
+
+This endpoint used to show all albums in one user.
+
+### Show All Albums in One User [GET] 
+
++ Response 200 (application/json)
+
+    + Attributes (array[Albums])
+
+
+## All Todos in One User [/users/1/todos]
+
+This endpoint used to show all todos in one user.
+
+### Show All Todos in One User [GET] 
+
++ Response 200 (application/json)
+
+    + Attributes (array[Todos])
+
 
 
 ## Posts [/posts]
@@ -137,10 +165,6 @@ in headers response.
         }
 
 + Response 201 (application/json)
-
-    + Headers
-
-            Location: /posts/{id}
 
     + Attributes (New Post)
 
@@ -231,10 +255,6 @@ And you should to send request data in Body with data type json.
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /comments/2
-
     + Attributes (New Comment)
 
       
@@ -310,10 +330,6 @@ And you should to send request data in Body with data type json.
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /albums/2
-
     + Attributes (New Album)
 
       
@@ -351,6 +367,28 @@ It use to delete post by id.
         {}
 
 
+## All Albums in one User [/albums?userId=1]
+
+This endpoint used to show all albums in one user.
+
+### Show All Albums in one User [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Albums])
+
+
+## All Photos in One Album [/albums/1/photos]
+
+This endpoint used to show all photos in one album.
+
+### Show All Photos in One Album [GET] 
+
++ Response 200 (application/json)
+
+    + Attributes (array[Photos])
+
+
 
 ## Photos [/photos]
 
@@ -375,10 +413,6 @@ And you should to send request data in Body with data type json.
         }
 
 + Response 201 (application/json)
-
-    + Headers
-
-            Location: /photos/2
 
     + Attributes (New Photo)
 
@@ -415,6 +449,17 @@ It use to delete photo by id.
         {}
 
 
+## All Photos in one Album [/photos?albumId=1]
+
+This endpoint used to show all photos in one album.
+
+### Show All Photos in one Album [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Photos])
+
+
 
 ## Todos [/todos]
 
@@ -438,10 +483,6 @@ And you should to send request data in Body with data type json.
         }
 
 + Response 201 (application/json)
-
-    + Headers
-
-            Location: /todos/2
 
     + Attributes (New Todos)
 
@@ -480,6 +521,17 @@ It use to delete Todos by id.
         {}
 
 
+## All Todos in one User [/todos?userId=1]
+
+This endpoint used to show all todos in one user.
+
+### Show All Todos in one User [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Todos])
+
+
 
 ## Authentication with Oauth [/oauth/token]
 
@@ -499,9 +551,10 @@ with this endpoint.
             "scope": ""
         }
 
-+ Response 200 (application/json)
++ Response 201 (application/json)
 
     + Attributes (New Token)
+
 
 
 
@@ -678,3 +731,10 @@ with this endpoint.
 + id: 1,
 + title: `makan`,
 + completed: true
+
+### New Token
+
++ token_type: `Bearer`,
++ expires_in: 31535999,
++ access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJkMTc0Y2QzZDI2OTQ3NjljZWQwMGVlMmZhYzI5YzcxNzdlZDY2NGVkMGY1YzY4NDc5MWE5Zjc0MmRkNjkwNDg0YThkYzFlZDdlMGY3MDZmIn0.eyJhdWQiOiIyIiwianRpIjoiYmQxNzRjZDNkMjY5NDc2OWNlZDAwZWUyZmFjMjljNzE3N2VkNjY0ZWQwZjVjNjg0NzkxYTlmNzQyZGQ2OTA0ODRhOGRjMWVkN2UwZjcwNmYiLCJpYXQiOjE1MTU1NjU5MDQsIm5iZiI6MTUxNTU2NTkwNCwiZXhwIjoxNTQ3MTAxOTAzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.YqhbZd5OSEqJE3N1KlZLhIO0ZRmIf1kIH8KK5RmWd0qyQD4QpUfIk07m5SJKENOl3Lj5lAVPXpV7XBgbJBorV843-1zCbitdMGoRRD41wH4qaN3w0QhKFXyj6oQb-kcvrw-EwgK8UFCa3NlVaTeUi0vC0LnRWog3cZPCqFY_0HBDsAzFu9lve87lTZTjCpg4GsUNObIVYeuh3Ww3-fyAHXEvq1PsWUfJq9_7xXY6byzqOqcV0IaL4AD26uxS5K5T1tYkzowNuaGO2vhRxveSQSQstznEG9ZiMXMG5v-dtknafuhlPKv_93Z5PWvMQkpwEKJI7clxNEwDc0jOS5oY5LoCDi4dntzUolqIlGAjpr01AUnmsH3vZSjDZotM0ERO11JuOWYK-jD5q1h9rR0RBFpvyPbk2e-zID2EyA5WQH35Z_R5szYPO3Vw_crGOyMjkUGhnXDU32qpko4Iq0i75FyserFY6ZMDaSM7QivhhQEBcPpkb8VqhLCLbRaLBL6Xq5sYGP9W40z-lMo53gyTwYdiO_f7fz8RmUYpkC1_dcZ2mLtyCy0cPb_43hd5bakLLB-EwrLXnWL-n7_g2VlhhRwgo-4PQMhQ5SksoS-mXBS54dbF12u7L8CMigv53JJ88sQaGYvObURRuwDSNgI_jzZDYfpINl_e7oxi0IRrkHs",
++ "refresh_token: "def50200bc207e5f385b5da366300846f52be7651b7a8fde427eea05b23f0a7da46923b2dd460463d1c93096a95598edd2f681e8be6e05cc4947684acae310d50ce8263766b31b2ee13fbbd87c30b8c98743736c2e3f4e7c69eaa41ca86f8a0f95333f1e91127253d554c2e4781e328532e02e20a57bc4405d497c80096f5b6b27406f077375a3137b8a397462b4ce71381473f4adc54d53431fa08f732f4a2fa5910edc647777847f3e436e6eb5907cb0727dcb24a4517a151633143ff9875d83e690f84d5687d99e5e14d14436515ba22a8803bfc08bd43b344639a191b08657b88c9bd3936de907fa755c680aac7712613630bfdba463dba2e77187b2124ce87b0f4e2d05f08f2de73f5f3681b3a59717776ba1d6fb67d38418fbd28bdc7cc6e2dde6b644f8e1780fc49084be8600bdaace96d02607a72ca29a39a6cb7b55c1c0c161cd0a1fa1396b0f07d062ec2248ed9ebe30b804c91ed5624a12447bd229"
