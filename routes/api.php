@@ -24,9 +24,11 @@ Route::group(['middleware' => 'auth:api'],function(){
     Route::resource('/albums', 'AlbumController');
     Route::resource('/photos', 'PhotoController');
     Route::resource('/todos', 'TodoController');
+
+    Route::get('/posts/{post}/comments', 'PostController@getComment')->name('Posts.getComment');
 });
 
-Route::get('/posts/{post}/comments', 'PostController@getComment')->name('Posts.getComment');
+
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
