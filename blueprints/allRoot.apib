@@ -481,6 +481,29 @@ It use to delete Todos by id.
 
 
 
+## Authentication with Oauth [/oauth/token]
+
+I make authentication with Oauth2. You can get access token
+with this endpoint.
+
+### Authentication [POST]
+
++ Request (application/json)
+
+        {
+            "grant_type": "password",
+            "client_id": "2",
+            "client_secret": "wnA9M6SCgDHm2ongk46MX1F7ChUSgxqfpCrIbnTA",
+            "username": "pril@gmail.com",
+            "password": "pril44",
+            "scope": ""
+        }
+
++ Response 200 (application/json)
+
+    + Attributes (New Token)
+
+
 
 ## Data Structures
 
