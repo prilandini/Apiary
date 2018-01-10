@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth:api'],function(){
     Route::get('/users/{users}/todos', 'UserController@getTodos')->name('Users.getTodos');
     Route::get('/users/{users}/posts', 'UserController@getPosts')->name('Users.getPosts');
     Route::get('/users/{users}/albums', 'UserController@getAlbums')->name('Users.getAlbums');
+  
 });
 
 
