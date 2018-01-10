@@ -3,49 +3,60 @@
 I make [apiary](https://github.com/prilandini/Apiary/blob/master/blueprints/allRoot.apib) about endpoint [REST API](https://jsonplaceholder.typicode.com/). There are six endpoint with method **GET**, **POST**, **PUT**, **PATCH**, and **DELETE** in each endpoint. But I didn't make Patch method, I just use Put. Below its endpoints list with methods.
 
 1. /posts
-    - GET	    /posts
-    - GET	    /posts/1
-    - GET	    /posts/1/comments
-    - GET	    /posts?userId=1
-    - POST	    /posts
-    - PUT	    /posts/1
-    - DELETE	/posts/1
+    - ``GET	    /posts``
+    - ``GET	    /posts/{id}``
+    - ``GET	    /posts/{id}/comments``
+    - ``GET	    /posts?userId={id}``
+    - ``POST	/posts``
+    - ``PUT	    /posts/{id}``
+    - ``DELETE	/posts/{id}``
 
 2. /comments
-    - GET	    /comments
-    - GET	    /comments/1
-    - GET	    /comments?postId=1
-    - POST	    /comments
-    - PUT	    /comments/1
-    - DELETE	/comments/1
+    - ``GET	    /comments``
+    - ``GET	    /comments/{id}``
+    - ``GET	    /comments?postId={id}``
+    - ``POST	/comments``
+    - ``PUT	    /comments/{id}``
+    - ``DELETE	/comments/{id}``
 
 3. /albums
-    - GET	    /albums
-    - GET	    /albums/1
-    - POST	    /albums
-    - PUT	    /albums/1
-    - DELETE	/albums/1
+    - ``GET	    /albums``
+    - ``GET	    /albums/{id}``
+    - ``GET     /albums/{id}/photos``
+    - ``GET     /albums?userId={id}``
+    - ``POST	/albums``
+    - ``PUT	    /albums/{id}``
+    - ``DELETE	/albums/{id}``
 
 4. /photos
-    - GET	    /photos
-    - GET	    /photos/1
-    - POST	    /photos
-    - PUT	    /photos/1
-    - DELETE	/photos/1
+    - ``GET	    /photos``
+    - ``GET	    /photos/{id}``
+    - ``GET     /photos?albumId={id}``
+    - ``POST	/photos``
+    - ``PUT	    /photos/{id}``
+    - ``DELETE	/photos/{id}``
 
 5. /todos
-    - GET	    /todos
-    - GET	    /todos/1
-    - POST	    /todos
-    - PUT	    /todos/1
-    - DELETE	/todos/1
+    - ``GET	    /todos``
+    - ``GET	    /todos/{id}``
+    - ``GET     /todos?userId={id}``
+    - ``POST	/todos``
+    - ``PUT	    /todos/{id}``
+    - ``DELETE	/todos/{id}``
 
 6. /users
-    - GET	    /users
-    - GET	    /users/1
-    - POST	    /users
-    - PUT	    /users/1
-    - DELETE	/users/1
+    - ``GET	    /users``
+    - ``GET	    /users/{id}``
+    - ``GET     /users/{id}/posts``
+    - ``GET     /users/{id}/albums``
+    - ``GET     /users/{id}/todos``
+    - ``POST	/users``
+    - ``PUT	    /users/{id}``
+    - ``DELETE	/users/{id}``
+
+I also make authentication with Oauth 2. The endpoint is
+    - ``POST    /oauth/token``
+    - ``GET     /test`` 
 
 After that, I implemented the apiary in this project with framework laravel and database mysql. 
 

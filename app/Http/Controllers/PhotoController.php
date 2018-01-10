@@ -14,8 +14,14 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $photos = Photo::all();
+        $photos = null;
 
+        if ($id = request()->albumId) {
+            $photos = Photo::where('albumId', $id)->get();
+        } else {
+            $photos = Photo::get();
+        }
+        
         $result = $photos->map(function($photo) {
             return [
                 "albumId" => $photo->albumId,

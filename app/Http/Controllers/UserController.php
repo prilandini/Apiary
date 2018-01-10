@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Post;
+use App\Album;
+use App\Todo;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -199,5 +202,52 @@ class UserController extends Controller
                 'Content-Type'=>'applications/json'
             ]);
         }
+    }
+
+    public function getPosts($id)
+    {
+        $posts = Post::where("userId", $id)->get();
+
+        $result = $posts->map(function($post) {
+            return [
+                "userId" => $post->userId,
+                "id" => $post->id,
+                "title" => $post->title,
+                "body" => $post->body,
+            ];
+        });
+        
+        return $result;
+    }
+
+    public function getAlbums($id)
+    {
+        $albums = Album::where('userId', $id)->get();
+
+        $result = $albums->map(function($album) {
+            return [
+                "userId" => $album->userId,
+                "id" => $album->id,
+                "title" => $album->title,
+            ];
+        });
+
+        return $result;
+    }
+
+    public function getTodos($id) 
+    {
+        $todos = Todo::where('userId', $id)->get();
+        
+        $result = $todos->map(function($todo) {
+            return [
+                "userId" => $todo->userId,
+                "id" => $todo->id,
+                "title" => $todo->title,
+                "completed" => (boolean)$todo->completed
+            ];
+        });
+
+        return $result;
     }
 }
