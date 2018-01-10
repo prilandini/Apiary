@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Album;
+use App\Photo;
 use Illuminate\Http\Request;
 use function GuzzleHttp\json_encode;
 
@@ -15,8 +16,14 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $albums = Album::all();
-
+        $albums = null;
+        
+        if ($id = request()->userId) {
+            $albums = Album::where('userId', $id)->get();
+        } else {
+            $albums = Album::get();
+        }
+        
         $result = $albums->map(function($album) {
             return [
                 "userId" => $album->userId,
@@ -129,5 +136,22 @@ class AlbumController extends Controller
                 'Content-Type'=>'application/json'
             ]);
         }
+    }
+
+    public function getPhotos($id)
+    {
+        $photos = Photo::where('albumId', $id)->get();
+
+        $result = $photos->map(function($photo) {
+            return [
+                "albumId" => $photo->albumId,
+                "id" => $photo->id,
+                "title" => $photo->title,
+                "url" => $photo->url,
+                "thumbnailUrl" => $photo->thumbnailUrl
+            ];
+        });
+
+        return $result;
     }
 }

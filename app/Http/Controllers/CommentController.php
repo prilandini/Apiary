@@ -16,6 +16,8 @@ class CommentController extends Controller
     {
         // $comments = Comment::all()->load('user');
 
+        $comments =null;
+        
         if ($id = request()->postId) {
             $comments = Comment::where('postId', $id)->get();
         } else {
