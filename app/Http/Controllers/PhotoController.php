@@ -24,8 +24,8 @@ class PhotoController extends Controller
         
         $result = $photos->map(function($photo) {
             return [
-                "albumId" => $photo->albumId,
-                "id" => $photo->id,
+                "albumId" => (int) $photo->albumId,
+                "id" => (int) $photo->id,
                 "title" => $photo->title,
                 "url" => $photo->url,
                 "thumbnailUrl" => $photo->thumbnailUrl
@@ -63,8 +63,8 @@ class PhotoController extends Controller
         $photo = Photo::create($request->all());
         
         $result = [
-            "albumId" => $photo->albumId,
-            "id" => $photo->id,
+            "albumId" => (int) $photo->albumId,
+            "id" => (int) $photo->id,
             "title" => $photo->title,
             "url" => $photo->url,
             "thumbnailUrl" => $photo->thumbnailUrl
@@ -84,8 +84,8 @@ class PhotoController extends Controller
         $photo = Photo::find($id);
         
         $result = [
-            "albumId" => $photo->albumId,
-            "id" => $photo->id,
+            "albumId" => (int) $photo->albumId,
+            "id" => (int) $photo->id,
             "title" => $photo->title,
             "url" => $photo->url,
             "thumbnailUrl" => $photo->thumbnailUrl
@@ -118,8 +118,8 @@ class PhotoController extends Controller
         $photo->update(request()->all());
 
         $result = [
-            "albumId" => $photo->albumId,
-            "id" => $photo->id,
+            "albumId" => (int) $photo->albumId,
+            "id" => (int) $photo->id,
             "title" => $photo->title,
             "url" => $photo->url,
             "thumbnailUrl" => $photo->thumbnailUrl

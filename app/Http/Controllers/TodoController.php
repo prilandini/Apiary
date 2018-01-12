@@ -24,8 +24,8 @@ class TodoController extends Controller
 
         $result = $todos->map(function($todo) { 
             return [
-                "userId" => $todo->userId,
-                "id" => $todo->id,
+                "userId" => (int) $todo->userId,
+                "id" => (int) $todo->id,
                 "title" => $todo->title,
                 "completed" => (boolean) $todo->completed 
             ];
@@ -62,8 +62,8 @@ class TodoController extends Controller
         $todo = Todo::create($request->all());
 
         $result = [
-            "userId" => $todo->userId,
-            "id" => $todo->id,
+            "userId" => (int) $todo->userId,
+            "id" => (int) $todo->id,
             "title" => $todo->title,
             "completed" => (boolean) $todo->completed
         ];
@@ -82,8 +82,8 @@ class TodoController extends Controller
         $todo = Todo::find($id);
         
         $result = [
-            "userId" => $todo->userId,
-            "id" => $todo->id,
+            "userId" => (int) $todo->userId,
+            "id" => (int) $todo->id,
             "title" => $todo->title,
             "completed" => (boolean) $todo->completed
         ];
@@ -115,8 +115,8 @@ class TodoController extends Controller
         $todo->update(request()->all());
 
         $result = [
-            "userId" => $todo->userId,
-            "id" => $todo->id,
+            "userId" => (int) $todo->userId,
+            "id" => (int) $todo->id,
             "title" => $todo->title,
             "completed" => (boolean) $todo->completed
         ];

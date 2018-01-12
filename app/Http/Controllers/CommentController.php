@@ -26,8 +26,8 @@ class CommentController extends Controller
 
         $result = $comments->map(function($comment) {
             return [
-                "postId" => $comment->postId,
-                "id" => $comment->id,
+                "postId" => (int) $comment->postId,
+                "id" => (int) $comment->id,
                 "name" => $comment->user['name'],
                 "email" => $comment->user['email'],
                 "body" => $comment->body
@@ -64,8 +64,8 @@ class CommentController extends Controller
         $comment = Comment::create($request->all());
         
         $result = [
-            "postId" => $comment->postId,
-            "id" => $comment->id,
+            "postId" => (int) $comment->postId,
+            "id" => (int) $comment->id,
             "name" => $comment->user['name'],
             "email" => $comment->user['email'],
             "body" => $comment->body
@@ -85,8 +85,8 @@ class CommentController extends Controller
         $comment = Comment::find($id);
 
         $result = [
-            "postId" => $comment->postId,
-            "id" => $comment->id,
+            "postId" => (int) $comment->postId,
+            "id" => (int) $comment->id,
             "name" => $comment->user['name'],
             "email" => $comment->user['email'],
             "body" => $comment->body
@@ -120,8 +120,8 @@ class CommentController extends Controller
         $comment->update(request()->all());
 
         $result = [
-            "postId" => $comment->postId,
-            "id" => $comment->id,
+            "postId" => (int) $comment->postId,
+            "id" => (int) $comment->id,
             "name" => $comment->user['name'],
             "email" => $comment->user['email'],
             "body" => $comment->body

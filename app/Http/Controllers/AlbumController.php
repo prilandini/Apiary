@@ -26,8 +26,8 @@ class AlbumController extends Controller
         
         $result = $albums->map(function($album) {
             return [
-                "userId" => $album->userId,
-                "id" => $album->id,
+                "userId" => (int) $album->userId,
+                "id" => (int) $album->id,
                 "title" => $album->title,
                 ]; 
         });
@@ -61,8 +61,8 @@ class AlbumController extends Controller
         $album = Album::create($request->all());
 
         $result = [
-                "userId" => $album->userId,
-                "id" => $album->id,
+                "userId" => (int) $album->userId,
+                "id" => (int) $album->id,
                 "title" => $album->title,
                 ]; 
 
@@ -80,8 +80,8 @@ class AlbumController extends Controller
         $album = Album::find($id);
 
         $result = [
-            "userId" => $album->userId,
-            "id" => $album->id,
+            "userId" =>  (int)$album->userId,
+            "id" => (int) $album->id,
             "title" => $album->title,
             ]; 
 
@@ -112,8 +112,8 @@ class AlbumController extends Controller
         $album->update(request()->all());
 
         $result = [
-            "userId" => $album->userId,
-            "id" => $album->id,
+            "userId" => (int) $album->userId,
+            "id" => (int) $album->id,
             "title" => $album->title,
             ]; 
 
@@ -144,8 +144,8 @@ class AlbumController extends Controller
 
         $result = $photos->map(function($photo) {
             return [
-                "albumId" => $photo->albumId,
-                "id" => $photo->id,
+                "albumId" => (int) $photo->albumId,
+                "id" => (int) $photo->id,
                 "title" => $photo->title,
                 "url" => $photo->url,
                 "thumbnailUrl" => $photo->thumbnailUrl

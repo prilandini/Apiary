@@ -25,8 +25,8 @@ class PostController extends Controller
 
         $result = $posts->map(function($post) {
             return [
-                "userId" => $post->userId,
-                "id" => $post->id,
+                "userId" => (int) $post->userId,
+                "id" => (int) $post->id,
                 "title" => $post->title,
                 "body" => $post->body,
             ];
@@ -62,8 +62,8 @@ class PostController extends Controller
         $post = Post::create($request->all());
         
         $result = [
-            "userId" => $post->userId,
-            "id" => $post->id,
+            "userId" => (int) $post->userId,
+            "id" => (int) $post->id,
             "title" => $post->title,
             "body" => $post->body,
         ];
@@ -82,8 +82,8 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $result = [
-            "userId" => $post->userId,
-            "id" => $post->id,
+            "userId" => (int) $post->userId,
+            "id" => (int) $post->id,
             "title" => $post->title,
             "body" => $post->body,
         ];
@@ -115,8 +115,8 @@ class PostController extends Controller
         $post->update(request()->all());
 
         $result = [
-                "userId" => $post->userId,
-                "id" => $post->id,
+                "userId" => (int) $post->userId,
+                "id" => (int) $post->id,
                 "title" => $post->title,
                 "body" => $post->body,
             ];
@@ -147,8 +147,8 @@ class PostController extends Controller
 
         $result = $comments->map(function($comment) {
             return [
-                "postId" => $comment->postId,
-                "id" => $comment->id,
+                "postId" => (int) $comment->postId,
+                "id" => (int) $comment->id,
                 "name" => $comment->user['name'],
                 "email" => $comment->user['email'],
                 "body" => $comment->body
