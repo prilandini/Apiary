@@ -21,7 +21,7 @@ class UserController extends Controller
         
         $result = $users->map(function($user) {
             return [
-                "id" => $user->id,
+                "id" => (int) $user->id,
                 "name" => $user->name,
                 "username" => $user->username,
                 "email" => $user->email,
@@ -77,7 +77,7 @@ class UserController extends Controller
         $user = User::create($request->all());
         
         $result = [
-            "id" => $user->id,
+            "id" => (int) $user->id,
             "name" => $user->name,
             "username" => $user->username,
             "email" => $user->email,
@@ -114,7 +114,7 @@ class UserController extends Controller
         $user = User::find($id);
 
         $result = [
-            "id" => $user->id,
+            "id" => (int) $user->id,
             "name" => $user->name,
             "username" => $user->username,
             "email" => $user->email,
@@ -162,7 +162,7 @@ class UserController extends Controller
         $user->update(request()->all());
 
         $result = [
-            "id" => $user->id,
+            "id" => (int) $user->id,
             "name" => $user->name,
             "username" => $user->username,
             "email" => $user->email,
@@ -210,8 +210,8 @@ class UserController extends Controller
 
         $result = $posts->map(function($post) {
             return [
-                "userId" => $post->userId,
-                "id" => $post->id,
+                "userId" => (int) $post->userId,
+                "id" => (int) $post->id,
                 "title" => $post->title,
                 "body" => $post->body,
             ];
@@ -226,8 +226,8 @@ class UserController extends Controller
 
         $result = $albums->map(function($album) {
             return [
-                "userId" => $album->userId,
-                "id" => $album->id,
+                "userId" => (int) $album->userId,
+                "id" => (int) $album->id,
                 "title" => $album->title,
             ];
         });
@@ -241,8 +241,8 @@ class UserController extends Controller
         
         $result = $todos->map(function($todo) {
             return [
-                "userId" => $todo->userId,
-                "id" => $todo->id,
+                "userId" => (int) $todo->userId,
+                "id" => (int) $todo->id,
                 "title" => $todo->title,
                 "completed" => (boolean)$todo->completed
             ];
