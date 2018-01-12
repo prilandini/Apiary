@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-
+        
         $result = $users->map(function($user) {
             return [
                 "id" => $user->id,
